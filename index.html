@@ -4,29 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Primary Meta Tags -->
-    <title>#OneClickLLM — Standardized token delivery protocol</title>
-    <meta name="title" content="#OneClickLLM — Standardized token delivery protocol">
-    <meta name="description" content="A lightweight, browser-friendly protocol for secure per-user API key delivery from LLM providers. No manual token copying required.">
-    <meta name="keywords" content="LLM, API, token, setup, protocol, OpenAI, OpenRouter, SambaNova, one-click setup, security">
+    <title>#OneClickLLM — One-click LLM setup for browser apps</title>
+    <meta name="title" content="#OneClickLLM — One-click LLM setup for browser apps">
+    <meta name="description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, no technical knowledge needed.">
+    <meta name="keywords" content="LLM, API, token, UX, one-click setup, browser app, security, OpenRouter, GigaChat, #OneClickLLM">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://krivich.github.io/oneclickllm/">
-    <meta property="og:title" content="#OneClickLLM — Standardized token delivery protocol">
-    <meta property="og:description" content="A lightweight, browser-friendly protocol for secure per-user API key delivery from LLM providers. No manual token copying required.">
+    <meta property="og:title" content="#OneClickLLM — One-click LLM setup for browser apps">
+    <meta property="og:description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, no technical knowledge needed.">
     <meta property="og:image" content="https://krivich.github.io/oneclickllm/preview.png">
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://krivich.github.io/oneclickllm/">
-    <meta property="twitter:title" content="#OneClickLLM — Standardized token delivery protocol">
-    <meta property="twitter:description" content="A lightweight, browser-friendly protocol for secure per-user API key delivery from LLM providers. No manual token copying required.">
+    <meta property="twitter:title" content="#OneClickLLM — One-click LLM setup for browser apps">
+    <meta property="twitter:description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, no technical knowledge needed.">
     <meta property="twitter:image" content="https://krivich.github.io/oneclickllm/preview.png">
     <!-- Schema.org -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "TechArticle",
-            "headline": "#OneClickLLM — Standardized token delivery protocol",
-            "description": "A lightweight protocol for secure and simple LLM setup in client apps.",
+            "headline": "#OneClickLLM — One-click LLM setup for browser apps",
+            "description": "A secure UX pattern for connecting LLMs to client-side apps with a single user click — no manual token handling required.",
             "author": {
                 "@type": "Person",
                 "name": "Krivich"
@@ -39,10 +39,9 @@
                     "url": "https://krivich.github.io/oneclickllm/favicon.svg"
                 }
             },
-            "datePublished": "2025-10-17"
+            "datePublished": "2025-11-17"
         }
     </script>
-    <!-- Favicon (гарантированно работает) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='48' font-family='system-ui'>🔌</text></svg>">
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -243,21 +242,21 @@
         </div>
     </div>
 
-    <h1 class="ru-only">Протокол простой настройки LLM для клиентских приложений</h1>
-    <h1 class="en-only">One-click LLM setup protocol for client apps</h1>
-    <h1 class="zh-only">客户端应用的一键式 LLM 设置协议</h1>
+    <h1 class="ru-only">Простое подключение LLM для браузерных приложений</h1>
+    <h1 class="en-only">Simple LLM integration for browser apps</h1>
+    <h1 class="zh-only">浏览器应用的简单 LLM 接入方式</h1>
 
     <p class="ru-only">
-        <strong>#OneClickLLM</strong> — это легковесный протокол для безопасной настройки LLM в клиентских приложениях.
-        <strong>Пользователю не нужно знать, что такое LLM или токен, и ничего копировать вручную.</strong>
+        <strong>#OneClickLLM</strong> — это UX-паттерн для безопасного подключения LLM в клиентских приложениях без ручного ввода токенов.<br>
+        Пользователю не нужно понимать, как работает LLM — достаточно нажать одну кнопку.
     </p>
     <p class="en-only">
-        <strong>#OneClickLLM</strong> is a lightweight protocol for secure LLM setup in client apps.
-        <strong>The user doesn’t need to know what an LLM or token is, and doesn’t have to copy anything manually.</strong>
+        <strong>#OneClickLLM</strong> is a UX pattern for securely connecting LLMs in client apps without manual token entry.<br>
+        The user doesn’t need to understand how LLMs work — just one click is enough.
     </p>
     <p class="zh-only">
-        <strong>#OneClickLLM</strong> 是一种轻量级协议，用于在客户端应用中安全地设置 LLM。
-        <strong>用户无需了解 LLM 或令牌是什么，也无需手动复制任何内容。</strong>
+        <strong>#OneClickLLM</strong> 是一种用于在客户端应用中安全接入 LLM 的用户体验模式，无需手动输入令牌。<br>
+        用户无需理解 LLM 的工作原理 — 只需点击一次即可。
     </p>
 
     <h2 class="ru-only">Как это работает</h2>
@@ -267,50 +266,98 @@
     <div class="flow">
         <div class="flow-step">
             <div class="flow-number">1</div>
-            <div class="ru-only"><strong>Клиентское приложение перенаправляет пользователя к провайдеру</strong> (<code>https://PROVIDER.COM/setup?client=AppName&amp;redirect_uri=https://APP.COM/</code>).</div>
-            <div class="en-only"><strong>Client app redirects the user to the provider</strong> (<code>https://PROVIDER.COM/setup?client=AppName&amp;redirect_uri=https://APP.COM/</code>).</div>
-            <div class="zh-only"><strong>客户端应用将用户重定向到提供商</strong> (<code>https://PROVIDER.COM/setup?client=AppName&amp;redirect_uri=https://APP.COM/</code>).</div>
+            <div class="ru-only">Приложение перенаправляет пользователя на страницу провайдера:<br><code>https://PROVIDER.COM/setup?client=AppName&amp;redirect_uri=https://APP.COM/</code></div>
+            <div class="en-only">The app redirects the user to the provider's page:<br><code>https://PROVIDER.COM/setup?client=AppName&amp;redirect_uri=https://APP.COM/</code></div>
+            <div class="zh-only">应用将用户重定向至提供商页面：<br><code>https://PROVIDER.COM/setup?client=AppName&amp;redirect_uri=https://APP.COM/</code></div>
         </div>
         <div class="flow-step">
             <div class="flow-number">2</div>
-            <div class="ru-only">Пользователь <strong>логинится или регистрируется</strong> и нажимает <strong>«Выдать токен»</strong>.</div>
-            <div class="en-only">User <strong>logs in or signs up</strong> and clicks <strong>“Issue token”</strong>.</div>
-            <div class="zh-only">用户<strong>登录或注册</strong>并点击<strong>“发放令牌”</strong>。</div>
+            <div class="ru-only">Пользователь логинится (через email, Google и т.п.) и нажимает «Выдать токен».</div>
+            <div class="en-only">The user logs in (via email, Google, etc.) and clicks “Issue token”.</div>
+            <div class="zh-only">用户通过邮箱、Google 等方式登录，并点击“发放令牌”。</div>
         </div>
         <div class="flow-step">
             <div class="flow-number">3</div>
-            <div class="ru-only">Провайдер редиректит обратно с токеном в URL hash:<br><code>https://APP.COM/#<em>token</em>=sk-xxx&amp;<em>model</em>=...</code></div>
-            <div class="en-only">Provider redirects back with a token in the URL hash:<br><code>https://APP.COM/#<em>token</em>=sk-xxx&amp;<em>model</em>=...</code></div>
-            <div class="zh-only">提供商通过 URL hash 重定向回应用：<br><code>https://APP.COM/#<em>token</em>=sk-xxx&amp;<em>model</em>=...</code></div>
+            <div class="ru-only">Провайдер редиректит обратно с токеном и моделью в URL hash:<br><code>https://APP.COM/#token=sk-xxx&amp;model=yyy</code></div>
+            <div class="en-only">The provider redirects back with a token and model in the URL hash:<br><code>https://APP.COM/#token=sk-xxx&amp;model=yyy</code></div>
+            <div class="zh-only">提供商通过 URL hash 携带令牌和模型重定向回应用：<br><code>https://APP.COM/#token=sk-xxx&amp;model=yyy</code></div>
         </div>
         <div class="flow-step">
             <div class="flow-number">4</div>
-            <div class="ru-only">Приложение читает хеш и использует токен.</div>
-            <div class="en-only">App reads the hash and uses the token.</div>
-            <div class="zh-only">应用读取 hash 并使用令牌。</div>
+            <div class="ru-only">Приложение читает хеш — токен <strong>никогда не покидает браузер</strong>.</div>
+            <div class="en-only">The app reads the hash — the token <strong>never leaves the browser</strong>.</div>
+            <div class="zh-only">应用读取 hash — 令牌<strong>永远不会离开浏览器</strong>。</div>
         </div>
     </div>
+
+    <h2 class="ru-only">Почему это безопасно и логично? (аналогия с онлайн-оплатой)</h2>
+    <h2 class="en-only">Why it’s secure and logical? (online payment analogy)</h2>
+    <h2 class="zh-only">为何安全且合乎逻辑？（类比在线支付）</h2>
+
+    <p class="ru-only">
+        Это работает по тому же принципу, что и онлайн-оплата: интернет-магазин инициирует платёж, но всю работу с клиентом и деньгами выполняет банк:
+    </p>
+    <p class="en-only">
+        It works the same way as online payment: the online store initiates the payment, but the bank handles all communication with the customer and the money:
+    </p>
+    <p class="zh-only">
+        其原理与在线支付相同：线上商店发起支付，但所有与客户和资金的交互均由银行完成：
+    </p>
+
+    <ul>
+        <li class="ru-only">Вы не вводите реквизиты карты на сайте магазина — вас <strong>перенаправляют в банк</strong>.</li>
+        <li class="en-only">You don’t enter your card details on the store’s website — you’re <strong>redirected to the bank</strong>.</li>
+        <li class="zh-only">您不会在商店网站上输入银行卡信息 — 而是<strong>被重定向到银行</strong>。</li>
+
+        <li class="ru-only">Банк <strong>сам общается с вами</strong>, проверяет данные, берёт деньги и возвращает вас обратно.</li>
+        <li class="en-only">The bank <strong>communicates directly with you</strong>, verifies your data, takes the money, and sends you back.</li>
+        <li class="zh-only">银行<strong>直接与您交互</strong>，验证信息、扣款后将您送回。</li>
+
+        <li class="ru-only">Магазин <strong>никогда не видит вашу карту</strong> — он только получает подтверждение оплаты.</li>
+        <li class="en-only">The store <strong>never sees your card</strong> — it only receives a payment confirmation.</li>
+        <li class="zh-only">商店<strong>永远不会看到您的银行卡</strong> — 仅收到支付确认。</li>
+    </ul>
+
+    <p class="ru-only">
+        В #OneClickLLM:
+    </p>
+    <p class="en-only">
+        In #OneClickLLM:
+    </p>
+    <p class="zh-only">
+        在 #OneClickLLM 中：
+    </p>
+
+    <ul>
+        <li class="ru-only">Провайдер LLM — это «банк»: он <strong>берёт на себя аутентификацию, KYC, биллинг и комплаенс</strong>.</li>
+        <li class="en-only">The LLM provider is the “bank”: it <strong>handles authentication, KYC, billing, and compliance</strong>.</li>
+        <li class="zh-only">LLM 提供商就是“银行”：<strong>负责身份验证、KYC、计费和合规性</strong>。</li>
+
+        <li class="ru-only">Приложение — это «магазин»: оно <strong>работает только с бизнес-логикой</strong> и <strong>не трогает токены напрямую</strong>.</li>
+        <li class="en-only">The app is the “store”: it <strong>focuses solely on business logic</strong> and <strong>never handles tokens directly</strong>.</li>
+        <li class="zh-only">应用就是“商店”：<strong>只关注业务逻辑</strong>，<strong>不直接处理令牌</strong>。</li>
+    </ul>
 
     <h2 class="ru-only">Преимущества</h2>
     <h2 class="en-only">Benefits</h2>
     <h2 class="zh-only">优势</h2>
 
     <ul>
-        <li class="ru-only">❤️ <strong>Простота</strong>: пользователю не нужно знать, что такое LLM или токен.</li>
-        <li class="en-only">❤️ <strong>Simplicity</strong>: the user doesn’t need to know what an LLM or token is.</li>
-        <li class="zh-only">❤️ <strong>简单性</strong>：用户无需了解 LLM 或令牌是什么 — 一键即可完成设置。</li>
+        <li class="ru-only">❤️ <strong>Простота</strong> — пользователь просто нажимает «Подключить».</li>
+        <li class="en-only">❤️ <strong>Simplicity</strong> — the user just clicks “Connect”.</li>
+        <li class="zh-only">❤️ <strong>简单</strong> — 用户只需点击“连接”即可。</li>
 
-        <li class="ru-only">🛡️ <strong>Безопасность</strong>: токен может не покидать браузер пользователя.</li>
-        <li class="en-only">🛡️ <strong>Security</strong>: the token may never leave the user's browser.</li>
-        <li class="zh-only">🛡️ <strong>安全性</strong>：令牌可能永远不会离开用户浏览器。</li>
+        <li class="ru-only">🛡️ <strong>Безопасность</strong> — токен остаётся в браузере.</li>
+        <li class="en-only">🛡️ <strong>Security</strong> — the token stays in the browser.</li>
+        <li class="zh-only">🛡️ <strong>安全</strong> — 令牌保留在浏览器中。</li>
 
-        <li class="ru-only">✅ <strong>Надёжность</strong>: исключены ошибки при ручном копировании ключей.</li>
-        <li class="en-only">✅ <strong>Reliability</strong>: eliminates errors from manual key copying.</li>
-        <li class="zh-only">✅ <strong>可靠性</strong>：避免手动复制密钥时出错。</li>
+        <li class="ru-only">✅ <strong>Надёжность</strong> — нет ошибок копипаста.</li>
+        <li class="en-only">✅ <strong>Reliability</strong> — no copy-paste errors.</li>
+        <li class="zh-only">✅ <strong>可靠</strong> — 无复制粘贴错误。</li>
 
-        <li class="ru-only">🎯 <strong>Контроль провайдера</strong>: выдача токенов только проверенным приложениям.</li>
-        <li class="en-only">🎯 <strong>Provider control</strong>: issue tokens only to verified apps.</li>
-        <li class="zh-only">🎯 <strong>提供商控制</strong>：仅向已验证的应用发放令牌。</li>
+        <li class="ru-only">🎯 <strong>Для провайдеров</strong> — рост аудитории, контроль над выдачей, поддержка open-source и PWA.</li>
+        <li class="en-only">🎯 <strong>For providers</strong> — audience growth, controlled token issuance, and support for open-source and PWA.</li>
+        <li class="zh-only">🎯 <strong>对提供商而言</strong> — 扩大用户群、控制令牌发放、支持开源和 PWA。</li>
     </ul>
 
     <h2 class="ru-only">Поддержка протокола провайдерами</h2>
