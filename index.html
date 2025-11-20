@@ -6,19 +6,19 @@
     <!-- Primary Meta Tags -->
     <title>#OneClickLLM — One-click LLM setup for browser apps</title>
     <meta name="title" content="#OneClickLLM — One-click LLM setup for browser apps">
-    <meta name="description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, no technical knowledge needed.">
-    <meta name="keywords" content="LLM, API, token, UX, one-click setup, browser app, security, OpenRouter, GigaChat, #OneClickLLM">
+    <meta name="description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, SSO-compatible, no technical knowledge needed.">
+    <meta name="keywords" content="LLM, API, token, UX, one-click setup, browser app, security, SSO, OpenRouter, GigaChat, #OneClickLLM">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://krivich.github.io/oneclickllm/">
     <meta property="og:title" content="#OneClickLLM — One-click LLM setup for browser apps">
-    <meta property="og:description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, no technical knowledge needed.">
+    <meta property="og:description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, SSO-compatible, no technical knowledge needed.">
     <meta property="og:image" content="https://krivich.github.io/oneclickllm/preview.png">
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://krivich.github.io/oneclickllm/">
     <meta property="twitter:title" content="#OneClickLLM — One-click LLM setup for browser apps">
-    <meta property="twitter:description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, no technical knowledge needed.">
+    <meta property="twitter:description" content="A secure UX pattern that lets users connect LLMs to browser apps with one click — no tokens, no copy-paste, SSO-compatible, no technical knowledge needed.">
     <meta property="twitter:image" content="https://krivich.github.io/oneclickllm/preview.png">
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -26,7 +26,7 @@
             "@context": "https://schema.org",
             "@type": "TechArticle",
             "headline": "#OneClickLLM — One-click LLM setup for browser apps",
-            "description": "A secure UX pattern for connecting LLMs to client-side apps with a single user click — no manual token handling required.",
+            "description": "A secure UX pattern for connecting LLMs to client-side apps with a single user click — no manual token handling required, compatible with enterprise SSO environments.",
             "author": {
                 "@type": "Person",
                 "name": "Krivich"
@@ -360,9 +360,83 @@
         <li class="zh-only">🎯 <strong>对提供商而言</strong> — 扩大用户群、控制令牌发放、支持开源和 PWA。</li>
     </ul>
 
+    <h2 class="ru-only">🔄 Совместимость с SSO</h2>
+    <h2 class="en-only">🔄 SSO compatibility</h2>
+    <h2 class="zh-only">🔄 SSO 兼容性</h2>
+
+    <p class="ru-only">
+        <strong>#OneClickLLM не заменяет SSO и не является его частью — он работает поверх существующих SSO-механизмов.</strong><br>
+        Если приложение и провайдер LLM находятся в одной доверенной зоне (корпоративная сеть, облако с единым IdP), пользователь <strong>не проходит повторную авторизацию</strong>.
+    </p>
+    <p class="en-only">
+        <strong>#OneClickLLM does not replace SSO nor is it part of it — it operates on top of existing SSO mechanisms.</strong><br>
+        If the app and the LLM provider reside in the same trusted zone (corporate network, cloud with a shared IdP), the user <strong>does not need to re-authenticate</strong>.
+    </p>
+    <p class="zh-only">
+        <strong>#OneClickLLM 不替代 SSO，也不是其组成部分 — 它运行在现有 SSO 机制之上。</strong><br>
+        如果应用与 LLM 提供商处于同一可信区域（企业网络、使用统一 IdP 的云环境），用户<strong>无需重复认证</strong>。
+    </p>
+
+    <p class="ru-only">В этом случае:</p>
+    <p class="en-only">In this case:</p>
+    <p class="zh-only">在此情况下：</p>
+
+    <ul>
+        <li class="ru-only">Приложение перенаправляет на <code>/setup</code> как обычно,</li>
+        <li class="en-only">The app redirects to <code>/setup</code> as usual,</li>
+        <li class="zh-only">应用照常重定向至 <code>/setup</code> 页面，</li>
+
+        <li class="ru-only">Провайдер <strong>автоматически распознаёт пользователя</strong> через существующую SSO-сессию (куки, заголовки, JWT и т.д.),</li>
+        <li class="en-only">The provider <strong>automatically recognizes the user</strong> via the existing SSO session (cookies, headers, JWT, etc.),</li>
+        <li class="zh-only">提供商通过现有的 SSO 会话（Cookie、请求头、JWT 等）<strong>自动识别用户</strong>，</li>
+
+        <li class="ru-only"><strong>Сразу выдаёт токен и редиректит обратно</strong> — без форм, без кликов.</li>
+        <li class="en-only"><strong>Immediately issues a token and redirects back</strong> — no forms, no clicks.</li>
+        <li class="zh-only"><strong>立即发放令牌并重定向回应用</strong> — 无需表单、无需点击。</li>
+    </ul>
+
+    <div class="card">
+        <p class="ru-only"><strong>🔑 Для инженера:</strong><br>
+            — страница <code>/setup</code> должна проверять наличие валидной SSO-сессии,<br>
+            — если она есть — пропускать шаг «логин» и сразу генерировать токен,<br>
+            — если нет — показывать обычную форму входа.</p>
+        <p class="en-only"><strong>🔑 For engineers:</strong><br>
+            — the <code>/setup</code> page must check for a valid SSO session,<br>
+            — if present, skip the login step and immediately generate a token,<br>
+            — if absent, show the regular login form.</p>
+        <p class="zh-only"><strong>🔑 对开发者而言：</strong><br>
+            — <code>/setup</code> 页面应检查是否存在有效的 SSO 会话，<br>
+            — 如果存在，则跳过登录步骤并立即生成令牌，<br>
+            — 如果不存在，则显示常规登录表单。</p>
+    </div>
+
+    <p class="ru-only">Таким образом, в доверенной среде #OneClickLLM действительно превращается в <strong>«один клик — и работает»</strong>.</p>
+    <p class="en-only">Thus, in trusted environments, #OneClickLLM truly becomes <strong>“one click — and it works”</strong>.</p>
+    <p class="zh-only">因此，在可信环境中，#OneClickLLM 确实实现了<strong>“一键即用”</strong>。</p>
+
     <h2 class="ru-only">Поддержка протокола провайдерами</h2>
     <h2 class="en-only">Provider adoption</h2>
     <h2 class="zh-only">提供商采用情况</h2>
+
+    <div class="card">
+        <p class="ru-only">Вы провайдер и уже внедрили #OneClickLLM? Проверьте совместимость прямо здесь:</p>
+        <p class="en-only">Are you a provider and already implemented #OneClickLLM? Validate your endpoint right here:</p>
+        <p class="zh-only">您是提供商并已实现 #OneClickLLM？在此直接验证您的端点：</p>
+
+        <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-start;">
+            <input type="url" id="validator-url" placeholder="https://provider.com/setup" style="flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-family: 'Inter', monospace; font-size: 14px;">
+            <button id="validate-btn" class="ru-only" style="padding: 8px 16px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; white-space: nowrap;">Проверить</button>
+            <button id="validate-btn" class="en-only" style="padding: 8px 16px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; white-space: nowrap;">Validate</button>
+            <button id="validate-btn" class="zh-only" style="padding: 8px 16px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; white-space: nowrap;">验证</button>
+        </div>
+    </div>
+
+    <!-- Hidden success message -->
+    <div id="validation-success" class="card" style="display: none;">
+        <p class="ru-only">✅ Поздравляем! Провайдер поддерживает #OneClickLLM.<br>Токен успешно получен (он остаётся в вашем браузере и никуда не отправляется).</p>
+        <p class="en-only">✅ Congratulations! The provider supports #OneClickLLM.<br>The token was successfully received (it stays in your browser and is not sent anywhere).</p>
+        <p class="zh-only">✅ 恭喜！该提供商支持 #OneClickLLM。<br>令牌已成功获取（保留在您的浏览器中，不会发送到任何地方）。</p>
+    </div>
 
     <div class="supporters">
         <div class="supporter ru-only">— 🌱️ пока никого —</div>
@@ -409,6 +483,57 @@
             document.body.className = newHash;
             document.querySelectorAll('.lang-btn').forEach(b => {
                 b.classList.toggle('active', b.dataset.lang === newHash);
+            });
+        }
+    });
+
+    // Validator logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlInput = document.getElementById('validator-url');
+        const validateBtn = document.getElementById('validate-btn');
+        const successBox = document.getElementById('validation-success');
+
+        // Check if we just returned from a validation attempt
+        if (window.location.hash.includes('#validate')) {
+            const hash = window.location.hash.substring(1); // remove '#'
+            const params = new URLSearchParams(hash.split('&').map(part => {
+                const [key, value = ''] = part.split('=');
+                return [key, decodeURIComponent(value)];
+            }));
+
+            if (params.has('token') && params.has('model')) {
+                successBox.style.display = 'block';
+                successBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        if (validateBtn) {
+            validateBtn.addEventListener('click', () => {
+                const url = urlInput.value.trim();
+                if (!url) {
+                    const messages = {
+                        ru: 'Введите URL',
+                        en: 'Please enter a URL',
+                        zh: '请输入 URL'
+                    };
+                    alert(messages[document.body.className] || messages.en);
+                    return;
+                }
+
+                try {
+                    const providerUrl = new URL(url);
+                    providerUrl.searchParams.set('client', 'OneClickLLM Validator');
+                    providerUrl.searchParams.set('redirect_uri', 'https://krivich.github.io/oneclickllm/#validate');
+
+                    window.location.href = providerUrl.toString();
+                } catch (e) {
+                    const messages = {
+                        ru: 'Некорректный URL',
+                        en: 'Invalid URL',
+                        zh: 'URL 格式不正确'
+                    };
+                    alert(messages[document.body.className] || messages.en);
+                }
             });
         }
     });
